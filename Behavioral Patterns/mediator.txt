@@ -1,0 +1,51 @@
+Pattern Name and Classification
+Mediator pattern, a behavioral pattern.
+
+Intent
+The Mediator pattern is used to reduce coupling between objects by creating a mediator object that facilitates communication between objects. The mediator pattern defines an object that encapsulates the way a set of objects interact, decoupling the objects from each other.
+
+Also Known As
+Intermediary, Coordinator.
+
+Motivation
+In a complex system, there may be many objects that need to communicate with each other. If objects communicate directly with each other, the system can become highly coupled and difficult to maintain. The Mediator pattern helps to reduce this coupling by creating an intermediary object that facilitates communication between objects. This also helps to simplify the system and make it easier to understand and modify.
+
+Applicability
+Use the Mediator pattern when:
+
+A set of objects communicate in complex ways and you want to simplify the communication between them.
+A group of objects are tightly coupled and you want to reduce the coupling.
+Adding new communication behavior between objects would be difficult or result in a lot of changes to the codebase.
+Structure
+The Mediator pattern includes the following components:
+
+Mediator: defines the interface for communicating with Colleague objects.
+Concrete Mediator: implements the Mediator interface and coordinates communication between Colleague objects.
+Colleague: defines the interface for communicating with other Colleague objects through the Mediator.
+Concrete Colleague: implements the Colleague interface and communicates with other Colleague objects through the Mediator.
+Participants
+The participants in the Mediator pattern are:
+
+Mediator: defines the interface for communicating with Colleague objects.
+Concrete Mediator: implements the Mediator interface and coordinates communication between Colleague objects.
+Colleague: defines the interface for communicating with other Colleague objects through the Mediator.
+Concrete Colleague: implements the Colleague interface and communicates with other Colleague objects through the Mediator.
+Collaborations
+The Mediator object acts as a central point of communication for the Colleague objects. Each Colleague communicates with the Mediator, which then communicates with the other Colleague objects as necessary.
+
+Consequences
+The Mediator pattern has several advantages:
+
+Reduced coupling between objects: Objects communicate through the Mediator object rather than directly with each other, reducing coupling and making the system easier to maintain.
+Simplified object interactions: The Mediator object provides a central point of communication, simplifying the interactions between objects.
+Improved flexibility: Adding new Colleague objects or changing the way objects communicate with each other can be done by modifying the Mediator object, without affecting other parts of the system.
+However, the Mediator pattern also has some drawbacks:
+
+Increased complexity: Adding a Mediator object can add complexity to the system, especially if there are many Colleague objects.
+Performance overhead: Using a Mediator object can introduce a performance overhead, especially if there are many Colleague objects and frequent communication between them.
+Implementation
+When implementing the Mediator pattern, consider the following:
+
+Choosing a Mediator object: The Mediator object should be chosen carefully to ensure that it is appropriate for the system.
+Deciding on communication mechanisms: The Mediator object can use different communication mechanisms to communicate with Colleague objects, such as events, callbacks, or direct method calls.
+Identifying Colleague objects: The Colleague objects should be identified and designed to work with the Mediator object.

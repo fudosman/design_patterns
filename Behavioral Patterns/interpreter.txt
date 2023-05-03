@@ -1,0 +1,51 @@
+Pattern Name and Classification
+Interpreter Pattern, a behavioral pattern.
+
+Intent
+The Interpreter pattern is used to define the grammar for interpreting a language or expression and provides a way to evaluate language syntax or expressions.
+
+Also Known As
+The Interpreter pattern is also known as the "Parse Tree" pattern.
+
+Motivation
+When building systems that deal with complex languages or expressions, it may be necessary to define a custom language or expression syntax, and then interpret or evaluate the expressions. This may involve parsing the expression and converting it into an abstract syntax tree, or other intermediate representation that can be evaluated.
+
+Applicability
+Use the Interpreter pattern when:
+
+You need to parse and interpret custom language syntax or expressions.
+You need to evaluate expressions based on custom rules or logic.
+You need to create a language or expression interpreter that is modular and extensible.
+Structure
+The Interpreter pattern is typically made up of three main components:
+
+The context - represents the state of the interpreter and is used to store any information needed during the interpretation process.
+The abstract expression - defines an interface for evaluating an expression and provides default implementations for common behavior.
+The concrete expression - implements the abstract expression interface and provides specific implementations for evaluating a particular type of expression.
+Participants
+The main participants in the Interpreter pattern are:
+
+Context - represents the state of the interpreter and is used to store any information needed during the interpretation process.
+AbstractExpression - defines an interface for evaluating an expression and provides default implementations for common behavior.
+TerminalExpression - implements the abstract expression interface and provides specific implementations for evaluating a particular type of expression.
+NonTerminalExpression - implements the abstract expression interface and provides specific implementations for evaluating a composite expression.
+Collaborations
+The client passes an instance of the context to the interpreter, along with an expression to be evaluated. The interpreter then parses and evaluates the expression, using the context to store and retrieve any necessary information.
+
+Consequences
+Using the Interpreter pattern has several benefits, including:
+
+It allows you to define custom language syntax or expressions and interpret them using a modular, extensible approach.
+It separates the parsing and evaluation logic, making it easier to maintain and modify the interpreter.
+It can simplify the implementation of complex business rules or logic by encapsulating them within the interpreter.
+However, the Interpreter pattern can also have some drawbacks, including:
+
+It can be difficult to implement for complex languages or expressions.
+It can be slow or resource-intensive, depending on the size and complexity of the expressions being evaluated.
+Implementation
+When implementing the Interpreter pattern, there are several things to keep in mind:
+
+The abstract expression should define an interface that is easy to understand and use, with default implementations for common behavior.
+The concrete expressions should provide specific implementations for evaluating different types of expressions, with appropriate error handling and error reporting.
+The context should be used to store any necessary information, and should be passed to the interpreter along with the expression to be evaluated.
+Consider using a parser or lexer to help parse and convert the expression into an abstract syntax tree or other intermediate representation.

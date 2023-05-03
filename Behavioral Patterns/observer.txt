@@ -1,0 +1,49 @@
+Pattern Name and Classification:
+Observer pattern, a behavioral pattern.
+
+Intent:
+The Observer pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+Also Known As:
+Dependents, Publish-Subscribe.
+
+Motivation:
+In many systems, an object should be able to notify other objects without making assumptions about the identity of those objects. In other words, we want a way to decouple our objects so that changes to one object will not affect other objects. This can be achieved by introducing a "third party" object that keeps track of all the objects interested in receiving updates, and notifies them when an update occurs. This "third party" object is called the Observer, and the objects that want to receive updates are called Observers.
+
+Applicability:
+The Observer pattern should be used in any situation where changes to one object may require updates to other objects, and where you want to decouple the objects making the changes from the objects being updated.
+
+Structure:
+
+lua
+Copy code
+ +-----------+              +-----------+
+ |  Subject  |<-------------|  Observer |
+ +-----------+              +-----------+
+       ^                           ^
+       |                           |
+ +-----------+              +-----------+
+ |  Concrete |              |  Concrete |
+ |  Subject  |<-------------|  Observer |
+ +-----------+              +-----------+
+Participants:
+
+Subject: Interface or abstract class that defines the operations for attaching and detaching observers to the subject object.
+ConcreteSubject: The subject object that maintains a list of its observers and notifies them automatically of any state changes.
+Observer: Interface or abstract class that defines the operations that will be used to notify this object when the subject's state changes.
+ConcreteObserver: The observer object that will receive notifications from the subject.
+Collaborations:
+
+ConcreteSubject calls the notify() method on all its observers when its state changes.
+Observers register themselves with a subject using the attach() method, and can also detach themselves using the detach() method.
+Consequences:
+
+Decouples the subject from its observers, making it easy to add, remove or modify observers.
+Supports broadcast communication, where a single subject can notify a large number of observers at the same time.
+Can cause performance problems if not implemented carefully, especially in situations with a large number of observers.
+May lead to unexpected updates, as observers may be notified in an arbitrary order.
+Implementation:
+
+Use the Observer pattern when you need to maintain consistency between related objects without making assumptions about their relationships or dependencies.
+Use a centralized Subject object to maintain a list of observers, and notify them when changes occur.
+Use the Pull model if the observers only need to know the state of the subject when they are updated, and the Push model if the observers need additional data from the subject when they are updated.

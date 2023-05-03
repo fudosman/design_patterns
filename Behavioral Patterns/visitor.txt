@@ -1,0 +1,53 @@
+Pattern Name and Classification:
+Visitor Pattern, a behavioral pattern.
+
+Intent:
+The Visitor pattern is used when we want to separate a complex set of structured data from the functionality that may be performed upon the data. The pattern involves defining a separate object that acts on the data and encapsulates this functionality. This makes it easier to add new operations to the data structure without modifying the data structure itself.
+
+Also Known As:
+Acyclic Visitor
+
+Motivation:
+Consider an object structure made up of many objects. These objects may have a common base class, but the specific implementation of the classes may differ. Now, imagine that we want to perform some operations on these objects, but the functionality to be performed is dependent on the specific class that is being used. We could use a switch or if/else statements to perform the operations, but this could lead to a lot of repeated code and make it difficult to add new operations. In such cases, the Visitor pattern comes to the rescue.
+
+Applicability:
+Use the Visitor pattern when:
+
+You have a complex object structure and want to perform a set of related operations on it.
+The structure of the object is stable but you want to add new operations without modifying the object structure.
+The behavior of the object depends on its class and you want to separate the behavior from the object.
+Structure:
+The Visitor pattern consists of the following components:
+
+Visitor: an interface that defines the operations that can be performed on the elements of the object structure.
+ConcreteVisitor: an implementation of the Visitor interface that provides the actual implementation of the operations defined in the Visitor interface.
+Element: an interface that defines the elements of the object structure that can be visited by the Visitor.
+ConcreteElement: an implementation of the Element interface that provides the actual implementation of the elements defined in the Element interface.
+ObjectStructure: a collection of objects that can be visited by the Visitor.
+Client: uses the Visitor to perform operations on the elements of the object structure.
+Participants:
+
+Visitor
+ConcreteVisitor
+Element
+ConcreteElement
+ObjectStructure
+Client
+Collaborations:
+
+The Client creates a ConcreteVisitor object and passes it to the ObjectStructure.
+The ObjectStructure iterates over its collection of ConcreteElement objects and calls the accept() method on each object.
+The accept() method of each ConcreteElement object calls the visit() method on the ConcreteVisitor object.
+Consequences:
+
+The Visitor pattern separates the algorithm from the object structure.
+It makes it easy to add new operations to the object structure.
+It can make the code more complex as the Visitor needs to be implemented for each new operation added.
+It can violate the open-closed principle as the Element interface needs to be modified to add new elements.
+Implementation:
+
+Define the Visitor interface and implement it with ConcreteVisitor classes.
+Define the Element interface and implement it with ConcreteElement classes.
+Define the accept() method in the Element interface that calls the visit() method of the Visitor interface.
+Define the ObjectStructure class and implement the add() and remove() methods to add and remove elements from the collection.
+Define the Client class and create ConcreteVisitor objects to pass to the ObjectStructure.

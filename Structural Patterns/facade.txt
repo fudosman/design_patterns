@@ -1,0 +1,54 @@
+Pattern Name and Classification
+Facade pattern, a structural pattern.
+
+Intent
+The Facade pattern provides a unified interface to a set of interfaces in a subsystem. It defines a higher-level interface that makes the subsystem easier to use.
+
+Also Known As
+Wrapper
+
+Motivation
+When a software system is built, it usually consists of multiple subsystems, each with its own set of interfaces. However, clients don't want to interact with each subsystem directly; instead, they want a simple way to interact with the entire system as a whole.
+
+Applicability
+Use the Facade pattern when:
+
+You want to provide a simple interface to a complex subsystem.
+There are many dependencies between clients and the implementation classes of an abstraction.
+You want to layer your subsystems.
+Structure
+The Facade pattern consists of three main components:
+
+Facade: Provides a simple interface to the subsystem.
+Subsystem: Implements and performs subsystem functions.
+Client: Uses the Facade to access the subsystem.
+Participants
+
+Facade: Provides a simple interface to the subsystem.
+Subsystem classes: Implement subsystem functionality.
+Client: Uses the Facade to access the subsystem.
+Collaborations
+The client uses the Facade to access the subsystem. The Facade simplifies the interface to the subsystem, and delegates requests from the client to the appropriate subsystem objects.
+
+Consequences
+The Facade pattern provides several benefits:
+
+It provides a simple interface to the subsystem, making it easier to use.
+It reduces the dependencies between the client and the subsystem, making it easier to change the subsystem later without affecting the client.
+It simplifies the implementation of the client by providing a single point of entry to the subsystem.
+Implementation
+When implementing the Facade pattern, keep in mind the following:
+
+The Facade should be implemented as a singleton.
+The Facade should be responsible for managing the subsystem objects.
+The subsystem classes should not have any knowledge of the Facade or the client.
+
+Known Uses
+The Facade pattern is used in many real-world scenarios, such as:
+
+High-level APIs for libraries or frameworks
+Operating systems providing simple APIs for complex operations
+Related Patterns
+
+Adapter: The Adapter pattern provides a different interface to an object, while the Facade pattern simplifies the interface to a set of objects.
+Mediator: The Mediator pattern defines a separate object to coordinate interactions between objects, while the Facade pattern defines a simpler interface to a set of objects.

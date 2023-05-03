@@ -1,0 +1,53 @@
+Pattern Name and Classification
+Flyweight pattern, a structural pattern.
+
+Intent
+The Flyweight pattern minimizes memory usage and improves performance by sharing objects that have common state between multiple objects, rather than creating new instances of the same object.
+
+Also Known As
+Flyweight objects.
+
+Motivation
+In certain situations, we may need to create a large number of objects that have the same state, which can lead to excessive memory usage and degraded performance. To address this problem, the Flyweight pattern allows us to share these objects to reduce memory usage and improve performance.
+
+Applicability
+Use the Flyweight pattern when:
+
+You need to create a large number of objects that have the same state.
+The object state can be shared between multiple objects.
+The object creation and destruction process is expensive.
+Structure
+The Flyweight pattern consists of:
+
+Flyweight: an interface that defines the operations that can be performed on a flyweight object.
+ConcreteFlyweight: an implementation of the Flyweight interface that stores intrinsic state (state that can be shared between objects) and provides operations that can be performed on this state.
+UnsharedConcreteFlyweight: a ConcreteFlyweight that stores extrinsic state (state that is unique to each object) and cannot be shared between objects.
+FlyweightFactory: a factory class that maintains a pool of flyweight objects and provides a way to retrieve a flyweight object.
+Client: creates and uses flyweight objects.
+Participants
+
+Flyweight: defines the interface for flyweight objects.
+ConcreteFlyweight: implements the Flyweight interface and stores intrinsic state.
+UnsharedConcreteFlyweight: implements the Flyweight interface and stores extrinsic state.
+FlyweightFactory: manages a pool of flyweight objects and provides a way to retrieve flyweight objects.
+Client: creates and uses flyweight objects.
+Collaborations
+
+The client requests a flyweight object from the FlyweightFactory.
+The FlyweightFactory returns an existing flyweight object from its pool, or creates a new one if necessary.
+The client uses the flyweight object.
+Consequences
+The Flyweight pattern has the following benefits:
+
+Reduced memory usage: By sharing flyweight objects, the pattern can significantly reduce memory usage, particularly in situations where a large number of objects with the same state are required.
+Improved performance: The Flyweight pattern can improve performance by reducing object creation and destruction overhead, particularly in situations where object creation and destruction is expensive.
+Separation of intrinsic and extrinsic state: The pattern separates intrinsic state (which is shared between objects) from extrinsic state (which is unique to each object), simplifying the design of flyweight objects.
+Increased flexibility: By separating intrinsic and extrinsic state, the pattern increases the flexibility of flyweight objects.
+Implementation
+When implementing the Flyweight pattern, consider the following:
+
+The FlyweightFactory should maintain a pool of flyweight objects to minimize object creation and destruction overhead.
+The FlyweightFactory should provide a way to retrieve flyweight objects based on their intrinsic state.
+The Flyweight interface should define operations that can be performed on a flyweight object.
+The ConcreteFlyweight should store intrinsic state and implement the operations defined by the Flyweight interface.
+The UnsharedConcreteFlyweight should store extrinsic state and implement the operations defined by the Flyweight interface.

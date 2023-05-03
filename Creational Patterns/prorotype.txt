@@ -1,0 +1,47 @@
+Pattern Name and Classification:
+Prototype, a creational design pattern.
+
+Intent:
+The Prototype pattern allows creating new objects by cloning existing ones, without coupling to their concrete classes. The pattern specifies creating an object through cloning an existing object rather than creating a new one from scratch. The primary benefit of this pattern is its performance because cloning an object is much faster than creating a new object from scratch.
+
+Also Known As:
+Clone.
+
+Motivation:
+The Prototype pattern is useful when you need to create objects that are similar to existing objects in your system, and you don't want to couple your code to the concrete classes of those objects. It is often used in systems that maintain a registry of objects and create new objects by copying the existing ones from the registry. The Prototype pattern is also useful when you need to avoid the overhead of creating new objects from scratch, for example, when creating objects is expensive or time-consuming.
+
+Applicability:
+Use the Prototype pattern when:
+
+A system needs to create new objects that are similar to existing objects, and it is more efficient to clone the existing objects than to create new ones from scratch.
+A system needs to hide the complexity of creating new objects from the client.
+A system needs to avoid the overhead of creating new objects from scratch.
+Structure:
+The Prototype pattern involves defining an abstract base class that specifies the interface for cloning itself. The concrete classes that implement this interface provide the actual cloning behavior. Clients of the pattern use the clone() method of the prototype object to create new objects.
+
+Participants:
+
+Prototype: the abstract base class that defines the interface for cloning itself.
+ConcretePrototype: the concrete class that implements the clone() method to provide the actual cloning behavior.
+Client: the object that creates new objects by cloning the prototype object.
+Collaborations:
+The client creates a new object by cloning the prototype object.
+
+Consequences:
+
+The Prototype pattern allows creating new objects by cloning existing ones, without coupling to their concrete classes.
+The pattern specifies creating an object through cloning an existing object rather than creating a new one from scratch, which can improve performance.
+The pattern simplifies the creation of complex objects, by allowing them to be created from simpler objects.
+Implementation:
+
+The Prototype pattern requires that the clone() method be defined in the prototype object and its subclasses.
+The Prototype pattern can be implemented using either shallow or deep cloning, depending on the needs of the system.
+The Prototype pattern can be implemented using a registry that maintains a collection of prototype objects.
+
+Known Uses:
+
+The Prototype pattern is used in JavaScript frameworks like React and Vue.js to create new components based on existing ones.
+The Prototype pattern is used in game development to create new game objects by cloning existing ones.
+Related Patterns:
+
+Abstract Factory pattern: The Prototype pattern can be combined with the Abstract Factory pattern to create families of related objects.

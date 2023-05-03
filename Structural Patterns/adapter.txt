@@ -1,0 +1,50 @@
+Pattern Name and Classification
+Adapter, a Structural Design Pattern.
+
+Intent
+The Adapter pattern converts the interface of one class into another interface that clients expect. It allows incompatible classes to work together by wrapping the objects of one class with an adapter that translates its interface to be compatible with another class.
+
+Also Known As
+Wrapper
+
+Motivation
+Sometimes we want to reuse a class that has an interface that does not match the interface we need. Or we need to create a class that can work with multiple classes that have different interfaces. This is where the Adapter pattern comes in, it allows us to create an adapter class that sits between the client code and the existing class to translate the interface of the existing class to match the interface that the client code expects.
+
+Applicability
+Use the Adapter pattern when:
+
+You want to use an existing class, but its interface does not match the interface you need.
+You want to create a class that can work with multiple classes that have different interfaces.
+You want to wrap a complex system with a simpler interface.
+Structure
+The Adapter pattern consists of four components:
+
+Target: the interface that the client code expects.
+Client: the code that uses the Target interface to interact with the system.
+Adaptee: the existing class that has an incompatible interface.
+Adapter: the class that translates the Adaptee interface to match the Target interface.
+Participants
+
+Target: defines the interface that the client code uses.
+Client: uses the Target interface to interact with the system.
+Adaptee: the existing class that has an incompatible interface.
+Adapter: the class that translates the Adaptee interface to match the Target interface.
+Collaborations
+The client code uses the Target interface to interact with the Adapter, which in turn translates the calls to the Adaptee.
+
+Consequences
+The Adapter pattern provides several benefits:
+
+It allows us to reuse existing classes with incompatible interfaces.
+It allows us to create a class that can work with multiple classes that have different interfaces.
+It separates the client code from the details of the Adaptee class.
+However, it also has some drawbacks:
+
+It adds an additional layer of complexity to the system.
+It can decrease performance if the Adapter is not implemented efficiently.
+Implementation
+When implementing the Adapter pattern, we should consider the following:
+
+We can use inheritance or composition to implement the Adapter class.
+We should choose the appropriate method of adapting the Adaptee interface, either through object or class adaptation.
+We should choose a naming convention that makes it clear which interface is being adapted.

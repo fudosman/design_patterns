@@ -1,0 +1,57 @@
+Pattern Name and Classification
+Builder pattern, a creational pattern.
+
+Intent
+Separates the construction of a complex object from its representation so that the same construction process can create different representations.
+
+Also Known As
+None.
+
+Motivation
+Sometimes, the construction of a complex object is not straightforward and requires multiple steps. Furthermore, some of these steps might depend on other steps or need to be executed in a particular order. This makes it difficult to create different representations of the same object, as it would require modifying the construction code.
+
+Applicability
+Use the Builder pattern when:
+
+The algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled.
+The construction process should allow different representations of the object to be created.
+Structure
+The Builder pattern has four main components:
+
+Builder: specifies an abstract interface for creating parts of the complex object.
+ConcreteBuilder: implements the Builder interface and provides a way to construct and get the final result.
+Director: constructs an object using the Builder interface.
+Product: the final object that the Builder constructs.
+Participants
+
+Builder: defines the interface for creating parts of the object.
+ConcreteBuilder: implements the Builder interface and provides a way to construct and get the final result.
+Director: constructs the final object using the Builder interface.
+Product: the final object that the Builder constructs.
+Collaborations
+The Director uses the Builder interface to construct the final object, which is returned by the ConcreteBuilder.
+
+Consequences
+The Builder pattern has the following benefits:
+
+Allows for the creation of different representations of the same object.
+Encapsulates the construction process and hides it from the client code.
+Simplifies the creation of complex objects by breaking down the construction into smaller, more manageable steps.
+Provides better control over the construction process.
+However, the Builder pattern also has some drawbacks:
+
+Requires creating multiple classes, which can increase code complexity.
+Can be overkill for simple objects that don't require different representations.
+Implementation
+When implementing the Builder pattern, keep the following in mind:
+
+Define a clear and simple interface for the Builder.
+Consider using a Director to manage the construction process.
+Make sure the Product is immutable or has limited mutability.
+Use a fluent interface to simplify the construction code.
+
+Known Uses
+The Builder pattern is commonly used in UI frameworks and game engines to create complex objects such as menus, levels, and characters.
+
+Related Patterns
+The Builder pattern is often used in conjunction with the Abstract Factory pattern, which provides

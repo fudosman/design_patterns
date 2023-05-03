@@ -1,0 +1,47 @@
+Pattern Name and Classification
+Composite pattern, a structural pattern in the Gang of Four's (GoF) design pattern catalog.
+
+Intent
+The Composite pattern lets you treat objects and groups of objects uniformly. It provides a way to compose objects into tree structures and then work with these structures as if they were individual objects. This enables clients to work with a tree structure of objects, as well as individual objects, in a transparent and uniform manner.
+
+Also Known As
+Part-Whole
+
+Motivation
+Consider a graphical user interface (GUI) system, where an interface element, such as a window or button, can contain child interface elements, such as text boxes or other buttons. The Composite pattern provides a way to treat both interface elements and their children uniformly. This simplifies the client code, which can treat the entire interface structure as a single object.
+
+Applicability
+Use the Composite pattern when:
+
+You need to represent part-whole hierarchies of objects.
+You want clients to be able to treat individual objects and compositions of objects uniformly.
+You want to be able to add and remove objects from the structure dynamically.
+Structure
+The Composite pattern consists of several components:
+
+Component: an abstract class or interface that defines the common interface for all components in the tree structure.
+Leaf: a concrete subclass of Component that represents a single object in the tree structure. A leaf has no children.
+Composite: a concrete subclass of Component that represents a composition of objects in the tree structure. A composite has children, which can be other components, including other composites.
+Participants
+The participants in the Composite pattern are:
+
+Component: defines the interface for objects in the composition.
+Leaf: represents a single object in the composition. Implements the Component interface.
+Composite: represents a composition of objects in the composition. Implements the Component interface. Can contain child components, which can be either leaves or other composites.
+Collaborations
+Clients of the Composite pattern work with objects using the Component interface. They can treat individual objects and compositions of objects uniformly, without needing to know whether they are working with a leaf or a composite.
+
+Consequences
+The Composite pattern provides several benefits:
+
+It enables clients to work with objects and compositions of objects uniformly, simplifying client code.
+It makes it easy to add new components to the tree structure, since clients only need to work with the Component interface.
+It can make the design overly general, since it treats both leaves and composites uniformly.
+Implementation
+Some implementation considerations for the Composite pattern include:
+
+Providing a common interface for both Leaf and Composite classes.
+Ensuring that the Component interface includes all necessary operations.
+Using exception handling to handle unsupported operations for Leaf objects.
+Considering lazy initialization of child components in Composite objects.
+Providing a way to access child components in Composite objects.

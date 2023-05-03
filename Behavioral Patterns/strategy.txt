@@ -1,0 +1,52 @@
+Pattern Name and Classification:
+The pattern's name is the Strategy pattern, which is a behavioral pattern.
+
+Intent:
+The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime. It lets the algorithm vary independently from the clients that use it.
+
+Motivation:
+In software development, we often face situations where we need to provide different implementations of a specific algorithm or task. One way to handle this is to use conditional statements in the client code to select the appropriate implementation. However, this approach makes the code complex, harder to maintain, and less flexible. The Strategy pattern solves this problem by encapsulating the algorithms and making them interchangeable at runtime. The client can choose the algorithm it wants to use without knowing the details of its implementation.
+
+Applicability:
+
+Use the Strategy pattern when you want to define a family of algorithms, encapsulate each one, and make them interchangeable.
+Use the Strategy pattern when you want to vary the behavior of an object at runtime.
+Use the Strategy pattern when you have a class that has multiple behaviors, and these behaviors are implemented as multiple conditional statements.
+Structure:
+The Strategy pattern consists of three main components:
+
+Context: the object that has a behavior that varies based on the strategy it uses.
+Strategy: the interface that defines the common methods that all strategies should implement.
+Concrete Strategy: the concrete implementation of the strategy interface.
+Participants:
+
+Context: the object that uses the strategy.
+Strategy: the interface that defines the common methods that all strategies should implement.
+Concrete Strategy: the concrete implementation of the strategy interface.
+Collaborations:
+
+The client sets the context's strategy by invoking its setter method.
+The context delegates the behavior to the strategy object by invoking its methods.
+Consequences:
+The Strategy pattern provides the following benefits:
+
+It encapsulates the algorithm or behavior, making it easier to maintain, test, and reuse.
+It makes the algorithm interchangeable at runtime, which gives the client more flexibility and reduces the amount of conditional statements in the code.
+It separates the algorithm or behavior from the client code, which improves the code's readability, understandability, and maintainability.
+It can increase the number of objects in the system, which can affect performance and memory usage.
+Implementation:
+When implementing the Strategy pattern, consider the following:
+
+Define a common interface for all strategies to follow.
+Define a setter method in the context to allow the client to set the strategy.
+Define concrete strategy classes that implement the strategy interface.
+Ensure that the strategies are interchangeable and that the context can use any strategy object.
+
+Known Uses:
+
+Sorting algorithms (e.g., QuickSort, MergeSort, BubbleSort)
+Payment processing systems (e.g., different payment methods such as PayPal, Credit Card, Bitcoin)
+Compression algorithms (e.g., different compression methods such as GZIP, ZIP, RAR)
+Related Patterns:
+
+Template

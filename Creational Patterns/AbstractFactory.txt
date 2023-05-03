@@ -1,0 +1,48 @@
+Pattern Name and Classification
+Abstract Factory, a creational pattern.
+
+Intent
+The Abstract Factory pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes. It encapsulates object creation and makes the system independent of how its objects are created, composed, and represented.
+
+Also Known As
+Kit.
+
+Motivation
+Consider a UI toolkit that supports multiple look-and-feels. The toolkit defines a set of abstract classes that represent buttons, menus, and other widgets. To allow different look-and-feels, there are concrete subclasses for each abstract class that implement the look-and-feel. For example, on Windows, there might be a WindowsButton and a WindowsMenu, whereas on MacOS, there would be a MacOSButton and a MacOSMenu.
+
+If the UI toolkit were only for Windows or MacOS, you could hardcode the concrete classes into the application. However, supporting both platforms requires making the system independent of the concrete classes that implement the toolkit's abstract classes. The Abstract Factory pattern solves this problem by defining an abstract factory interface that encapsulates the creation of the toolkit's objects. The abstract factory's concrete subclasses implement the interface and create the appropriate concrete objects for the desired look-and-feel.
+
+Applicability
+Use the Abstract Factory pattern when:
+
+A system should be independent of how its objects are created, composed, and represented.
+A system should be configured with one of multiple families of objects.
+A family of related product objects is designed to be used together, and you need to enforce this constraint.
+You want to provide a class library of products, and you want to reveal only their interfaces, not their implementations.
+Structure
+The Abstract Factory pattern defines an abstract factory interface that specifies a set of creation methods for each abstract product. The concrete factories implement this interface and create the concrete products that correspond to the desired variant. The abstract products define a set of interfaces for their concrete counterparts.
+
+Participants
+
+AbstractFactory: declares an interface for operations that create abstract product objects.
+ConcreteFactory: implements the operations to create concrete product objects.
+AbstractProduct: declares an interface for a type of product object.
+ConcreteProduct: defines a product object to be created by the corresponding concrete factory and implements the AbstractProduct interface.
+Client: uses only the interfaces declared by AbstractFactory and AbstractProduct.
+Collaborations
+
+Clients call the methods of the AbstractFactory interface to create products. The AbstractFactory implementation returned depends on the concrete factory instantiated.
+Each concrete factory knows which concrete products it must create, and its concrete products conform to the interfaces of the corresponding abstract products.
+Consequences
+
+Provides a level of indirection between clients and the system's object structure, making the system more flexible, extensible, and maintainable.
+Makes it easy to switch between different product families by instantiating different concrete factories.
+Makes it difficult to add new product families, as doing so requires modifying the AbstractFactory interface and all of its implementations.
+May lead to many new classes, as you must define a new concrete factory for each variant of the product family.
+Implementation
+
+Define an AbstractFactory interface that specifies a set of creation methods for each abstract product.
+Implement the AbstractFactory interface with a set of ConcreteFactory classes, one for each variant of the product family.
+Define an AbstractProduct interface for each product type and a ConcreteProduct class for each concrete product.
+The ConcreteFactory classes return instances of the ConcreteProduct classes, conforming to their AbstractProduct interface.
+Clients are coupled only to the AbstractFactory and AbstractProduct interfaces.

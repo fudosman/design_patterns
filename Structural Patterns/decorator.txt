@@ -1,0 +1,72 @@
+Pattern Name and Classification
+Decorator Pattern, Structural Pattern
+
+Intent
+The Decorator pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+Also Known As
+Wrapper
+
+Motivation
+In object-oriented programming, we can easily extend the behavior of an individual object by subclassing. However, this approach has two major drawbacks. First, it is not always possible to anticipate how a class should be extended, especially when the system is still evolving. Second, subclassing can lead to a proliferation of classes, which can be difficult to manage.
+
+Applicability
+Use the Decorator pattern when:
+
+you want to add responsibilities to objects dynamically, without affecting other objects in the same class.
+you want to add responsibilities to an object that you may want to remove later.
+you need to be able to extend the behavior of an object at runtime.
+Structure
+The following diagram shows the structure of the Decorator pattern:
+
+lua
+Copy code
++--------------+       +--------------+
+|   Component  |<------+ Concrete     |
++--------------+        Component   |
+| Operation()  |        +--------------+
++--------------+               /_\
+                                 |
+                                 |
+                           +--------------+
+                           |   Decorator  |
+                           +--------------+
+                           | _component  |
+                           | Operation() |
+                           +--------------+
+                                  /_\
+                                   |
+                     +------------------------+
+                     |        Concrete        |
+              +------+       Decorator       +------+
+              |       +------------------+       |
+              |       | _addedState      |       |
+              |       | _addedBehavior() |       |
+              |       +------------------+       |
+              |       |      _component  |       |
+              |       | Operation()     |       |
+              |       +------------------+       |
+              +----------------------------------+
+Participants
+The classes and objects in this pattern are:
+
+Component: defines the interface for objects that can have responsibilities added to them dynamically.
+Concrete Component: defines an object to which additional responsibilities can be attached.
+Decorator: maintains a reference to a Component object and defines an interface that conforms to Component's interface.
+Concrete Decorator: adds responsibilities to the component.
+Collaborations
+Decorators wrap themselves around Components, thereby changing the behavior of the Component as desired.
+
+Consequences
+The Decorator pattern provides a flexible alternative to subclassing for extending functionality. It avoids having to create a new subclass for each new combination of behavior, and it allows for dynamic behavior extension.
+
+However, the Decorator pattern can result in many small objects being created, which can negatively impact performance.
+
+Implementation
+To ensure that the Decorator pattern doesn't lead to an explosion of small classes, you should use the Factory Method pattern to create Decorators.
+
+Known Uses
+The Decorator pattern is widely used in GUI toolkits, where widgets can be decorated with borders, scrollbars, etc.
+
+Related Patterns
+The Decorator pattern is often used in conjunction with the Factory Method pattern to create new

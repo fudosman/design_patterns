@@ -1,0 +1,39 @@
+Pattern Name and Classification
+Factory Method, Creational Pattern
+
+Intent
+The Factory Method pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+Also Known As
+Virtual Constructor
+
+Motivation
+Consider an application framework for creating documents. We know that documents can be of many types: text documents, spreadsheets, images, and so on. We also know that documents have a common set of operations, such as open, close, save, and so on. Our framework should be customizable for different document types, so it should provide a way to create documents of various types.
+
+Applicability
+Use the Factory Method pattern when:
+
+A class can't anticipate the class of objects it must create.
+A class wants its subclasses to specify the objects it creates.
+Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate.
+Structure
+The Creator class declares the factory method, which returns an object of the Product class. The Creator may also define a default implementation of the factory method that returns a default ConcreteProduct object. The ConcreteCreator subclass overrides the factory method to return an instance of a ConcreteProduct.
+
+Participants
+
+Creator: The abstract class that declares the factory method that returns Product objects.
+ConcreteCreator: The subclass that implements the factory method to create a ConcreteProduct object.
+Product: The abstract class that defines the interface for the objects that the factory method creates.
+ConcreteProduct: The class that implements the Product interface.
+Collaborations
+
+Creator relies on its subclasses to define the factory method so that it returns an instance of the appropriate ConcreteProduct.
+Consequences
+
+Factory Method eliminates the need to bind application-specific classes into the code that uses them.
+Factory Method provides hooks for subclasses to use.
+Connecting parallel class hierarchies is difficult.
+Implementation
+
+Defining a default implementation for Creator's factory method can provide a way for the class to instantiate objects, even if the user does not provide a subclass.
+A template method (see Template Method pattern) defines the steps of an algorithm that involve creating objects. A Factory Method can be used in the template method's implementation to create the objects.

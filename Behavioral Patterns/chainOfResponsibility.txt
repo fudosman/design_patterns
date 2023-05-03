@@ -1,0 +1,45 @@
+The Chain of Responsibility is a behavioral design pattern that belongs to the behavioral pattern category.
+
+Intent:
+The Chain of Responsibility design pattern decouples the sender and the receiver of a request based on the type of request. It allows multiple objects to handle the request, and each object can decide whether to handle it or pass it on to the next object in the chain. This pattern provides a way to handle multiple requests without knowing which object will handle them at runtime.
+
+Also Known As:
+The Chain of Responsibility design pattern is also known as the "CoR" pattern.
+
+Motivation:
+In software development, sometimes it's necessary to process a request through multiple handlers, each responsible for a specific task. A simple example is when an online purchase is made, and the system needs to validate the purchase, apply a discount, calculate taxes, and finally process the payment. Each task can be handled by a different object, and the order of the handlers matters. The Chain of Responsibility pattern provides a way to manage this kind of situation in a flexible and efficient way.
+
+Applicability:
+The Chain of Responsibility pattern is applicable when:
+
+Multiple objects can handle a request, and the system needs to decide which object should handle it.
+The system needs to perform a task in a specific order, where each object handles one step of the process.
+The set of objects that can handle a request should be dynamic, and new handlers can be added or removed without changing the existing code.
+Structure:
+The Chain of Responsibility pattern consists of a sender object, a set of handler objects, and a request object. Each handler object has a reference to the next handler in the chain. The request object is passed from one handler to another until it's handled or until the end of the chain is reached.
+
+Participants:
+The participants in the Chain of Responsibility pattern are:
+
+Handler: An abstract class or interface that defines the interface for handling the request.
+ConcreteHandler: A concrete implementation of the Handler interface that handles the request or passes it to the next handler in the chain.
+Client: The object that sends the request to the first handler in the chain.
+Collaborations:
+The sender sends the request to the first handler in the chain. Each handler either handles the request or passes it to the next handler in the chain until the request is handled.
+
+Consequences:
+The advantages of using the Chain of Responsibility pattern are:
+
+Decouples the sender and receiver of the request.
+Allows multiple objects to handle the request.
+Provides flexibility in adding or removing handlers from the chain.
+The disadvantages of using the Chain of Responsibility pattern are:
+
+Increases the complexity of the system.
+Can result in requests not being handled if there's no handler for the request in the chain.
+Implementation:
+When implementing the Chain of Responsibility pattern, consider the following:
+
+Each handler should have a reference to the next handler in the chain.
+Handlers should be able to handle the request or pass it to the next handler in the chain.
+The sender object should only have a reference to the first handler in the chain.

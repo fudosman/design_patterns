@@ -1,0 +1,48 @@
+Pattern Name and Classification:
+The pattern's name is Template Method pattern, which is a behavioral design pattern.
+
+Intent:
+The Template Method pattern defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
+
+Also Known As:
+Virtual Method pattern.
+
+Motivation:
+In object-oriented programming, it is common to define a class hierarchy where some methods have a similar implementation in all derived classes, but some implementation may differ. One way to avoid code duplication is to extract the common parts of the implementation into a base class. The base class will define the overall algorithm and provide hooks for the specific implementation in the derived classes.
+
+Applicability:
+Use the Template Method pattern when:
+
+You want to implement an algorithm, but allow clients to vary some of its steps.
+You have multiple classes with similar algorithms, and you want to avoid duplicating code.
+You want to control the overall logic of an algorithm while allowing some flexibility in the implementation of its steps.
+Structure:
+
+AbstractClass: Abstract class that defines the template method and the primitive operations that the template method calls.
+ConcreteClass: Concrete class that implements the primitive operations to carry out subclass-specific steps of the algorithm.
+Participants:
+
+AbstractClass: Defines the abstract template method and the primitive operations that the template method calls.
+ConcreteClass: Implements the primitive operations to carry out subclass-specific steps of the algorithm.
+Collaborations:
+
+Clients of the AbstractClass call the template method, which in turn calls the primitive operations.
+Consequences:
+The Template Method pattern provides several benefits:
+
+Code reuse: By extracting the common parts of an algorithm into a base class, you avoid duplicating code in multiple classes.
+Flexibility: The Template Method pattern allows subclasses to provide their own implementation of specific steps in the algorithm, while still maintaining the overall structure of the algorithm.
+Ease of maintenance: Because the algorithm is defined in a single class, changes to the algorithm can be made in a single place.
+Implementation:
+When implementing the Template Method pattern, consider the following:
+
+Define the abstract template method to provide the overall structure of the algorithm.
+Define primitive operations to represent the steps of the algorithm that may vary between subclasses.
+Consider providing a default implementation for primitive operations that is appropriate for most subclasses.
+
+Known Uses:
+
+java.util.Collections#sort() uses the Template Method pattern to allow different implementations of the compareTo() method to be used for sorting.
+Related Patterns:
+
+Factory Method: Factory Method is often used in conjunction with Template Method to create objects used in the template method.

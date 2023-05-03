@@ -1,0 +1,81 @@
+Pattern Name and Classification
+Bridge Pattern, a structural design pattern.
+
+Intent
+The Bridge pattern decouples an abstraction from its implementation so that the two can vary independently. It separates an object's interface from its implementation, allowing the two to vary independently.
+
+Also Known As
+Handle/Body
+
+Motivation
+Suppose you have a shape hierarchy in your system that looks like this:
+
+javascript
+Copy code
+class Shape {
+  constructor() {
+    if (new.target === Shape) {
+      throw new Error('Cannot instantiate Shape class directly.');
+    }
+  }
+
+  draw() {}
+}
+
+class Circle extends Shape {
+  draw() {
+    console.log('Circle.draw');
+  }
+}
+
+class Square extends Shape {
+  draw() {
+    console.log('Square.draw');
+  }
+}
+
+class Rectangle extends Shape {
+  draw() {
+    console.log('Rectangle.draw');
+  }
+}
+
+You want to extend this hierarchy to incorporate the colors of the shapes. You might be tempted to create an entirely new class hierarchy for colored shapes. However, this approach violates the open/closed principle of object-oriented design, which states that classes should be open for extension but closed for modification. Modifying the Shape hierarchy to accommodate colored shapes would force you to modify every class that uses Shape objects.
+
+Applicability
+Use the Bridge pattern when you want to:
+
+Avoid a permanent binding between an abstraction and its implementation. This is useful when the implementation should be selected or switched at runtime.
+Hide implementation details from clients.
+Share an implementation among multiple objects.
+Structure
+The Bridge pattern decouples the abstraction from its implementation by providing a separate hierarchy for each. Here's how the Bridge pattern works:
+
+Create an abstraction hierarchy.
+Create an implementation hierarchy.
+Add a reference to the implementation in the abstraction.
+Implement the abstraction methods by delegating to the implementation.
+Clients interact with the abstraction exclusively.
+Participants
+
+Abstraction: defines the abstraction's interface and maintains a reference to an object of type Implementor.
+RefinedAbstraction: extends the interface defined by Abstraction.
+Implementor: defines the interface for implementation classes.
+ConcreteImplementor: implements the Implementor interface.
+Collaborations
+
+Abstraction delegates implementation to its Implementor object.
+Consequences
+The Bridge pattern has the following benefits and drawbacks:
+
+It separates the implementation from the abstraction, which allows both to vary independently.
+It provides a stable interface to clients even as implementation details change.
+It can make the code more complex by adding additional layers of abstraction.
+It can be overused, leading to unnecessary complexity.
+Implementation
+The following are some implementation considerations for the Bridge pattern:
+
+Choose between composition and inheritance to implement the relationship between Abstraction and Implementor. Composition is generally preferred because it is more flexible than inheritance.
+Decide how to implement the creation of Implementor objects. You can use either of the following approaches:
+Pass an Implementor object to the Abstraction's constructor.
+Use an Abstract Factory to create Implementor objects.

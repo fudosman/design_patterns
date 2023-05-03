@@ -1,0 +1,47 @@
+Pattern Name and Classification
+Singleton, Creational Design Pattern
+
+Intent
+The Singleton pattern ensures that a class has only one instance, and provides a global point of access to it. The pattern is used when we need to ensure that a single instance of a class is created and used throughout the system.
+
+Also Known As
+Singleton Object
+
+Motivation
+Sometimes it's important to have only one instance of a class, for example, to control access to some shared resource, such as a database or a file system. In other cases, we need to ensure that we have only one instance of a class, because it's expensive to create multiple instances or because the class should behave as a singleton, for example, a configuration or a log manager.
+
+Applicability
+Use the Singleton pattern when:
+
+There must be exactly one instance of a class, and it must be accessible to clients from a well-known access point.
+When the sole instance should be extensible by subclassing, and clients should be able to use an extended instance without modifying their code.
+Structure
+The Singleton class has a private constructor, a private static instance of itself, and a public static method that returns the same instance every time it's called.
+
+Participants
+
+Singleton: Defines a getInstance() operation that lets clients access its unique instance.
+Collaborations
+Clients access the Singleton instance solely through Singleton's getInstance() method.
+
+Consequences
+The Singleton pattern has the following benefits and drawbacks:
+
+Benefits: Provides a global point of access to a single instance; Allows the sole instance to be extensible by subclassing.
+Drawbacks: Can mask bad design, for example, when the Singleton is used to provide global access to mutable state; Can make it difficult to unit test clients that use the Singleton.
+Implementation
+To implement the Singleton pattern:
+
+Declare the Singleton class with a private constructor, a private static instance of itself, and a public static method that returns the same instance every time it's called.
+To ensure thread safety, use synchronized or a static initializer to initialize the instance field.
+To prevent multiple instances when using serialization, provide a readResolve() method to return the singleton instance.
+
+Known Uses
+
+Loggers
+Database connection managers
+Configuration managers
+Related Patterns
+
+Abstract Factory: Singleton can be used to enforce that the Abstract Factory has only one Concrete Factory instance.
+Facade: Singleton can be used as a Facade to simplify access to a complex subsystem.

@@ -1,0 +1,52 @@
+Command Pattern and Classification:
+The Command Pattern is a behavioral pattern that belongs to the category of design patterns. It is a pattern that decouples the sender of a request from the receiver of that request by encapsulating each request as an object. This allows us to parameterize clients with different requests, queue or log requests, and support undoable operations.
+
+Intent:
+The Command pattern encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations. It separates the request for a service from its execution by creating an intermediate layer (Command) between the sender and receiver.
+
+Also Known As:
+Action, Transaction
+
+Motivation:
+The main problem the Command pattern addresses is that of decoupling the sender and receiver of a request. When a request is sent, we often don't know what object will handle it and, moreover, which method of that object will be used. This makes it difficult to design a system that's flexible enough to handle different requests and handlers. The Command pattern decouples the sender and receiver of a request by introducing an object that acts as a Command between them.
+
+Applicability:
+Use the Command pattern when you want to:
+
+parameterize objects by an action to perform
+specify, queue, and execute requests at different times
+support undoable operations
+support logging changes so that they can be reapplied in case of a system crash
+structure a system around high-level operations built on primitives operations.
+Structure:
+The structure of the Command pattern is as follows:
+
+Command: declares an interface for executing an operation.
+ConcreteCommand: defines a binding between a Receiver object and an action.
+Client: creates a ConcreteCommand object and sets its receiver.
+Invoker: asks the command to carry out the request.
+Receiver: knows how to perform the operations associated with carrying out a request.
+Participants:
+
+Command: interface for executing an operation.
+ConcreteCommand: implements the Command interface and binds a Receiver with an action.
+Client: creates a ConcreteCommand object and sets its receiver.
+Invoker: asks the command to carry out the request.
+Receiver: knows how to perform the operations associated with carrying out a request.
+Collaborations:
+The client creates a ConcreteCommand object and specifies its receiver. An invoker stores the ConcreteCommand and asks the command to carry out the request by calling its execute() method. The ConcreteCommand invokes operations on its receiver to carry out the request.
+
+Consequences:
+The Command pattern has the following benefits and drawbacks:
+
+Decouples the sender and receiver of a request.
+Commands are first-class objects.
+Command objects can be assembled into composite (or macro) commands.
+Simplifies adding new commands to a system.
+The overhead of managing command objects can be an issue.
+Implementation:
+When implementing the Command pattern, be aware of the following issues:
+
+Supporting undo and redo operations requires extra care in designing the Command interface.
+The Execute operation could be parameterized to support different kinds of requests.
+To support queuing, implement a Command Queue object.

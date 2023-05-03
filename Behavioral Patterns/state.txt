@@ -1,0 +1,39 @@
+Pattern Name and Classification:
+State pattern, a behavioral pattern.
+
+Intent:
+The State pattern allows an object to change its behavior when its internal state changes. The pattern encapsulates states into separate classes, thus allowing an object to change its class and behavior at runtime.
+
+Motivation:
+In software design, there are situations where the behavior of an object depends on its internal state. An object may need to change its behavior based on some condition or event, but implementing such changes using conditional statements can lead to code duplication, making it harder to maintain and test. The State pattern addresses this issue by encapsulating the object's states into separate classes and allowing the object to change its behavior by switching between these classes.
+
+Applicability:
+
+Use the State pattern when the behavior of an object depends on its internal state, and the object must be able to change its behavior dynamically.
+Use the pattern when there are many conditional statements that change the behavior of an object, leading to code duplication and making it harder to maintain and test.
+Use the pattern when you want to define a finite set of states for an object, and the transition between these states must be well-defined.
+Structure:
+
+Context: the object whose behavior changes based on its internal state.
+State: an abstract class or interface that defines the behavior of the Context based on its internal state.
+ConcreteState: concrete classes that implement the behavior of the Context for each state.
+Participants:
+
+Context: maintains a reference to the current state object, and delegates state-specific behavior to the current state object.
+State: defines an interface for encapsulating the behavior associated with a particular state of the Context.
+ConcreteState: each subclass implements the behavior associated with a particular state of the Context.
+Collaborations:
+
+The Context delegates state-specific behavior to the current State object.
+The State object may change the current state of the Context.
+Consequences:
+
+The State pattern simplifies the code by eliminating long, conditional statements that depend on the object's state.
+The pattern makes it easier to add new states to the system without affecting the Context class.
+The pattern makes the code easier to maintain and test.
+The pattern can make the code more complex if there are many state transitions or if the state transitions are not well-defined.
+Implementation:
+
+The State pattern can be implemented using inheritance or composition. Inheritance allows states to inherit behavior from a superclass, while composition allows states to encapsulate behavior as objects.
+The pattern can be extended to support more complex state transitions by using a State Machine.
+The pattern can be used in conjunction with the Strategy pattern, which allows an object to choose an algorithm at runtime.
